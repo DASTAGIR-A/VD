@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Heart's Words</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    /* General Styles */
+   
+    body {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url('https://slidescorner.com/wp-content/uploads/2023/02/01-Cute-Pink-Hearts-Valentines-Day-Background-Aesthetic-FREE-by-SlidesCorner.com_.jpg') no-repeat center center fixed;
+      background-size: 100%;
+      /* animation: gradientAnimation 6s infinite ease-in-out; */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  
+  @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+  }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 15px;
+      width: 80%;
+      max-width: 600px;
+      position: relative;
+      z-index: 10;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    /* Book Styles */
+    .book {
+      width: 100%;
+      height: 300px;
+      position: relative;
+      perspective: 1000px;
+      margin: 0 auto;
+    }
+
+    .page {
+      width: 100%;
+      height: auto;
+      position: absolute;
+      background: white;
+      transform-origin: left;
+      transition: transform 1s;
+      backface-visibility: hidden;
+      text-align: center;
+      padding: 20px;
+      box-sizing: border-box;
+      border-radius: 10px;
+      z-index: 2;
+      font-size: 30px;
+    }
+
+    .page:nth-child(odd) {
+      background: #ffe6e6;
+    }
+
+    
+    .page:nth-child(even) {
+        background: #ffdcf0;
+      }
+    /* Ensure pages are stacked properly */
+    #page1 { z-index: 3; }
+    #page2 { z-index: 2; }
+    #page3 { z-index: 1; }
+
+    .page.flipped {
+      transform: rotateY(-180deg);
+      z-index: 0;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: #ff1493;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin: 10px 10px;
+    }
+
+    button:hover {
+      background: #ff69b4;
+    }
+    p{
+      margin: 0;
+      font-size: 19px;
+    }
+
+    /* Heart Rain Animation */
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: #ff1493;
+      animation: fall 5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+      z-index: 100;
+    }
+    @media(max-width:768px){
+      button{
+        margin: 100px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💖 My Heart's Words 💖</h1>
+    <div class="book">
+      <div class="page" id="page1">
+        <p>Assalamu alaikum Zubiya 🫀💍,</p>
+        <p>Happiest Birthday Meri Jaan....Humesha aise hi muskurate rehna aur aise hi kush aur humesha mere saath rehna 🥹💙</p>
+        <p>Tum mere liye itni kaash ho ke jaise ek marta hua insaan ruh ki talab ho</p>
+        <p>☀️✨ My sunshine, you light up my darkest days 🌙💖, and your love fills my heart with warmth 🔥❤️. I can’t wait to spend many more birthdays with you 🎂🎈, creating beautiful memories together 📸💑. You are my happiness 😍🥰, my dream come true 💭💘, and my forever love 💍💞. Love you endlessly! 💕💫💖🎊🎉</p>
+      </div>
+      <div class="page" id="page2">
+        <p>Happy Birthday, my princess! 🎀👑 You are my favorite person 💖🥰, my safe place 🏡💞, and my biggest happiness 😍🌟. I’m so lucky 🍀💕 to love you 💘 and be loved by you 😚💑. I hope today brings you all the joy 🎊🎉, laughter 😂💓, and love 💕💖 your heart desires! 🎂🎁🎈 You are my everything 🌎💫, my forever love 💍💞, and the best part of my life 🌸🌹! Love you endlessly! 😘💘💞✨</p>
+        <p>You light up my world ☀️💖, and my heart beats only for you ❤️🎶. I promise to make your day as special as you are 👑💕. Love you beyond words ✨💫—Happy Birthday, my love! 🎂🎉😘</p>
+      </div>
+      <div class="page" id="page3">
+        <p>Happy Birthday, my love! 🎉🥳🎂 Every moment with you is a blessing 🙏💖, and I’m so grateful to have you in my life 😘💞. You are my sunshine ☀️🌻, my happiness 😍😊, and my everything 💕💫. May this day bring you as much joy 🎊🎈, love ❤️💘, and laughter 😂💖 as you bring to my life! 💕✨ You are my heart ❤️💓, my soul 🌎💑, and my forever love 💍💞! Love you endlessly, my queen! 👑💋💘🎀</p>
+        <p>You are my everything.</p>
+        <p>Forever yours, 💌</p>
+        <p>Love Youhh innaaa saaraaa jaaannnnn! 😘💖💘💞💕💓💗💝💋🔥😍🥰🌍🌟✨💫🎀🎉🎊💍💑👑💃🕺🎶🌙☀️🌸🌹🎂🍫🎁💎💯</p>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button id="prevButton">Previous</button>
+      <button id="nextButton">Next</button>
+    </div>
+  </div>
+  <script>
+    let currentPage = 1;
+    const totalPages = 3;
+
+    document.getElementById('nextButton').addEventListener('click', function () {
+      if (currentPage < totalPages) {
+        document.getElementById(`page${currentPage}`).classList.add('flipped');
+        currentPage++;
+      }
+    });
+
+    document.getElementById('prevButton').addEventListener('click', function () {
+      if (currentPage > 1) {
+        currentPage--;
+        document.getElementById(`page${currentPage}`).classList.remove('flipped');
+      }
+    });
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>

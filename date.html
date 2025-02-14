@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Choose a Date</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Choose a Date 💖</h1>
+    <input type="date" id="datePicker">
+    <button id="nextButton">Next</button>
+  </div>
+  <script>
+    document.getElementById('nextButton').addEventListener('click', function () {
+      const date = document.getElementById('datePicker').value;
+      if (date) {
+        localStorage.setItem('date', date);
+        window.location.href = 'menu.html';
+      } else {
+        alert('Please select a date!');
+      }
+    });
+  </script>
+</body>
+</html>

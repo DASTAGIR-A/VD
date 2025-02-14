@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Choose an Activity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💖 What Should We Do? 💖</h1>
+    <select id="activitySelect">
+      <option value="dance">Dance</option>
+      <option value="walk">Take a Walk</option>
+      <option value="movie">Watch a Movie</option>
+      <option value="walk">Romance</option>
+      <option value="cook">Cook</option>
+      <option value="paint">Fight</option>
+      <option value="swim">Swim</option>
+      <option value="games">Play Games</option>
+      <option value="sleep">Sleep</option>
+      <option value="read">Read</option>
+
+    </select>
+    <button id="nextButton">Next</button>
+  </div>
+  <script>
+    document.getElementById('nextButton').addEventListener('click', function () {
+      const activity = document.getElementById('activitySelect').value;
+      localStorage.setItem('activity', activity);
+      window.location.href = 'lovebook.html';
+    });
+  </script>
+</body>
+</html>

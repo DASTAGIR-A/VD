@@ -1,0 +1,83 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: url('https://slidescorner.com/wp-content/uploads/2023/02/01-Cute-Pink-Hearts-Valentines-Day-Background-Aesthetic-FREE-by-SlidesCorner.com_.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #ff1493;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Great Vibes', cursive;
+  }
+  
+  .container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  
+  h1 {
+    font-size: .2.5rem;
+    margin-bottom: 20px;
+
+  }
+  
+  input, select {
+    padding: 10px;
+    font-size: 1.2rem;
+    border:none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background: #ff1493;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #ff69b4;
+  }
+  
+/* Heart Rain Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.heart {
+  position: absolute;
+  font-size: 2rem;
+  color: #ff1493;
+  animation: fall 5s linear infinite;
+  user-select: none;
+  pointer-events: none;
+}
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+    input, select, button {
+      font-size: 1rem;
+    }
+  }

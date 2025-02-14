@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Will You Be My Valentine?</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Great Vibes', cursive;
+      background: url('https://slidescorner.com/wp-content/uploads/2023/02/01-Cute-Pink-Hearts-Valentines-Day-Background-Aesthetic-FREE-by-SlidesCorner.com_.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #ff1493;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+      width: 80%;
+      max-width: 600px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1.2rem;
+      background: #ff1493;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: #ff69b4;
+    }
+
+    /* Move button on hover */
+    .no-button-move {
+      transition: all 0.5s ease;
+    }
+
+    .no-button-move:hover {
+      transform: translateX(calc((100vw - 100%) * var(--move-direction, 1)));
+    }
+
+    /* Heart Rain Animation */
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      color: #ff1493;
+      animation: fall 5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="proposalText"></h1>
+    <div id="buttons">
+      <button id="yesButton">YES</button>
+      <button id="noButton">NO</button>
+    </div>
+    <div id="confirmationText"></div>
+    <div id="nameCheck" style="display: none;">
+      <p>Oops! Are you sure you entered the correct name?</p>
+      <input type="text" id="correctName" placeholder="Enter the correct name">
+      <button id="submitCorrectName">Submit</button>
+    </div>
+  </div>
+  <script>
+    // Heart animation script
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '💖';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+    // Proposal logic
+    const correctName = "DASZUB !";
+    const name = localStorage.getItem('valentineName');
+    const proposalText = document.getElementById('proposalText');
+    const buttons = document.getElementById('buttons');
+    const confirmationText = document.getElementById('confirmationText');
+    const nameCheck = document.getElementById('nameCheck');
+    const correctNameInput = document.getElementById('correctName');
+    const submitCorrectName = document.getElementById('submitCorrectName');
+
+    if (name === correctName) {
+      proposalText.textContent = `${name}, will you be my Valentine?`;
+    } else {
+      proposalText.textContent = "Hmm... Are you sure you're the right person?";
+      buttons.style.display = 'none';
+      nameCheck.style.display = 'block';
+    }
+
+    submitCorrectName.addEventListener('click', function () {
+      const enteredName = correctNameInput.value.trim();
+      if (enteredName === correctName) {
+        localStorage.setItem('valentineName', enteredName);
+        window.location.reload();
+      } else {
+        confirmationText.textContent = "That's not the correct name. Try again!";
+      }
+    });
+
+      let noCount = 0;
+      const messages = [
+        "Are you sure?",
+        "Really sure?",
+        "Think again!",
+        "Last chance!"
+      ];
+    
+      const noButton = document.getElementById('noButton');
+      const yesButton = document.getElementById('yesButton');
+    
+      document.getElementById('yesButton').addEventListener('click', function () {
+        proposalText.textContent = `Yay! ${name}, you've made me the happiest person alive! 💖`;
+        buttons.style.display = 'none';
+        confirmationText.textContent = '';
+        setTimeout(() => {
+          window.location.href = 'date.html';
+        }, 2000);
+      });
+    
+      noButton.addEventListener('click', function () {
+        if (noCount < messages.length) {
+          confirmationText.textContent = messages[noCount];
+          noCount++;
+        } 
+        if (noCount === messages.length) {
+          confirmationText.textContent = "You're breaking my heart 😢";
+          enableNoButtonMovement();
+        }
+      });
+    
+      function enableNoButtonMovement() {
+        document.addEventListener('mousemove', function (event) {
+          const noButtonRect = noButton.getBoundingClientRect();
+          const cursorX = event.clientX;
+          const cursorY = event.clientY;
+          const buttonX = noButtonRect.left + noButtonRect.width / 2;
+          const buttonY = noButtonRect.top + noButtonRect.height / 2;
+    
+          const distance = Math.sqrt((cursorX - buttonX) ** 2 + (cursorY - buttonY) ** 2);
+    
+          if (distance < 100) { // Moves when cursor is close
+            const offsetX = (Math.random() * 200 - 100);
+            const offsetY = (Math.random() * 200 - 100);
+            noButton.style.position = 'absolute';
+            noButton.style.left = Math.max(0, Math.min(window.innerWidth - noButton.offsetWidth, noButton.offsetLeft + offsetX)) + 'px';
+            noButton.style.top = Math.max(0, Math.min(window.innerHeight - noButton.offsetHeight, noButton.offsetTop + offsetY)) + 'px';
+          }
+        });
+      }
+    </script>
+    
+</body>
+</html>

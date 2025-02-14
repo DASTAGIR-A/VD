@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Choose a Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💖 What Would You Like to Eat? 💖</h1>
+    <select id="menuSelect">
+      <option value="pizza">Pizza</option>
+      <option value="pasta">Pasta</option>
+      <option value="sushi">Momos</option>
+      <option value="steak">Rasmalai</option>
+      <option value="steak">Macroni</option>
+      <option value="steak">Al-faham</option>
+      <option value="steak">Chicken Curry</option>
+      <option value="steak">Tandoori</option>
+      <option value="steak">Chicken Tikka Masala</option>
+      <option value="steak">Murtanjan</option>
+      <option value="steak">Kadai Paneer</option>
+      <option value="steak">Mushroom Garlic Chicken</option>
+      <option value="steak">Vegetable Curry</option>
+      
+
+
+
+
+    </select>
+    <button id="nextButton">Next</button>
+  </div>
+  <script>
+    document.getElementById('nextButton').addEventListener('click', function () {
+      const menu = document.getElementById('menuSelect').value;
+      localStorage.setItem('menu', menu);
+      window.location.href = 'location.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Choose a Location</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💖 Where Should We Go? 💖</h1>
+    <select id="locationSelect">
+      <option value="beach">Beach</option>
+      <option value="park">Park</option>
+      <option value="restaurant">Restaurant</option>
+      <option value="movie">Movie Theater</option>
+      <option value="museum">Museum</option>
+      <option value="museum">Saas Ghar</option>
+      <option value="museum">Nikkah Hall</option>
+      <option value="museum">HoneyMoon(Maldives)</option>
+      <option value="museum">Ocean Park</option>
+      <option value="museum">Taj Mahal</option>
+      
+
+    </select>
+    <button id="nextButton">Next</button>
+  </div>
+  <script>
+    document.getElementById('nextButton').addEventListener('click', function () {
+      const location = document.getElementById('locationSelect').value;
+      localStorage.setItem('location', location);
+      window.location.href = 'activity.html';
+    });
+  </script>
+</body>
+</html>
